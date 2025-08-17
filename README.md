@@ -26,6 +26,24 @@ Based on their _intent_, there are _three_ kinds of patterns, which will be disc
 2. **Structural patterns**, that explain how to group these objects and their classes into larger, flexible and efficient structures.
 3. **Behavioral patterns**, that take care of the assignment of responsibilities for the objects, and the communication between different objects.
 
-Details on these patterns will be provided in their respective folders
+Details on these patterns will be provided in their respective folders.
+
+### Running the code
+
+All the code examples I've recreated (or will recreate) will be in TypeScript.
+
+I intend to run all the TS code in my Terminal. For that, the command I would use is:
+
+```
+npx tsx <filename>
+```
+
+For example:
+
+```sh
+npx tsx ./01-factory-method.ts
+```
+
+This uses `tsx` package. Running this command the first time will ask for permission to install the `tsx` package. Once that is done, it will run automatically from the next time.
 
 ---
