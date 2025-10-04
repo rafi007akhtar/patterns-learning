@@ -39,7 +39,7 @@ class ConcreteProduct2 implements Product {
   }
 }
 
-function clientCode(creator: Creator, where?: number) {
+function clientCodeFactory(creator: Creator, where?: number) {
   let announcement = "CLIENT: inside client code";
   if (where) {
     announcement += ` at ConcreteCreator${where}`;
@@ -50,6 +50,6 @@ function clientCode(creator: Creator, where?: number) {
 
 // USING THE FACTORY METHOD PATTERN
 const cc1 = new ConcreteCreator1(); // instead of doing `new Creator`, we are doing `new ConcreteCreator`
-clientCode(cc1, 1);
+clientCodeFactory(cc1, 1);
 const cc2 = new ConcreteCreator2();
-clientCode(cc2, 2);
+clientCodeFactory(cc2, 2);
