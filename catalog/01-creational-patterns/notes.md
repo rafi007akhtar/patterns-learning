@@ -25,7 +25,7 @@ Find it in [this file](./01-factory-method.ts).
 
 Check out the source [here](https://refactoring.guru/design-patterns/factory-method).
 
-## Absolute Factory
+## 2. Absolute Factory
 
 The abstract factory is a creational design pattern that allows to produce families of related objects without specifying their concrete class.
 
@@ -52,7 +52,7 @@ To solve this problem, we divided the solution into two parts: one for the produ
 - For each variant of the product family, create a separate **factory class** based on the `AbstractFactory` interface created above.
   - A factory a type of class that can return product of its particular type only. For example, `ModernFurnitureFactory` can return `ModernSofa`, `ModernChair` objects, but not `VictorianSofa`.
 - The client code then uses the `AbstractFactory` to work with both factories and products. It does not care about the concrete class of the factory it works with.
-- As the client is exposed to only abstract interfaces, the concrete factory is created by the application durint the initialization stage.
+- As the client is exposed to only abstract interfaces, the concrete factory is created by the application during the initialization stage.
 - The right factory type to create the concrete factory is selected before the init stage depending on the config or the env settings.
 
 ### Abstract v/s Concrete Factories.
