@@ -79,3 +79,31 @@ Find it in [this file](./02-absolute-factory.ts).
 ### More
 
 Check out the source [here](https://refactoring.guru/design-patterns/abstract-factory).
+
+## 3. Builder
+
+Builder is a creational design pattern that lets you construct different types of complex products without inflating the classes created.
+
+### Setup
+
+Imagine there is a base class, say `House`. It is required to create many different types of houses, like a house with a garden, a house with a pool, a house with a garage etc. One apporach is to create a subclass for each of the types, like `HouseGarden`, `HouseWithPool`, `HouseWithGarage` etc., but this approach will soon get out of hand as new types of house requirements show up.
+
+**Issue:**
+
+- if we follow the above approach, the `House` constructor will get inflated with all the unncessary attributes of the combined subclasses
+- to create a new `House` object, we will need to call the `House` constructor, and most of the time most of the fields will be `null`.
+
+### Solution
+
+- Extract away the **build steps** into their own methods (like buildWalls, buildDoors etc.).
+- Put the steps into **builder objects**, which will have different implementations for the same steps. The builder doesn't allow other objects to access the product while the product is being built.
+- Create a **Director** class that will decide which builder objects to be called when, based on the client requirements
+- The client may provide the Director class with the requirenents so the Director can execute the builders, or the client can provide the Director with its own builder with its own implementations, but the order of builder executions is still decided by the client.
+
+### Code
+
+Find it in [this file](./03-builder.ts).
+
+### More
+
+Check out the source [here](https://refactoring.guru/design-patterns/builder).
