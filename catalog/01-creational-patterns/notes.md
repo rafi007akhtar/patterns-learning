@@ -107,3 +107,23 @@ Find it in [this file](./03-builder.ts).
 ### More
 
 Check out the source [here](https://refactoring.guru/design-patterns/builder).
+
+## 3. Prototype
+
+Prototype is a creational design pattern that lets you copy existing objects without making your code dependent on their classes, and making sure the private fields are also copied.
+
+### Solution
+
+- Delegate the cloning process to the original class, by adding a `clone` method to it.
+- This method will use the language's built-in way to create a new object and put the attributes of the current object in it.
+- This will also take care of private vars as the class will be able to access its own private vars.
+
+An object supporting cloning is called a prototype.
+
+### Code
+
+Find it in [this file](./04-prototype.ts).
+
+### More
+
+Check out the source [here](https://refactoring.guru/design-patterns/prototype).
