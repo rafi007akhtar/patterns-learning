@@ -1,5 +1,7 @@
+// Original code: https://refactoring.guru/design-patterns/singleton/typescript/example
+
 class Singleton {
-  static instance: Singleton;
+  private static instance: Singleton;
   public id: string;
 
   private constructor() {
