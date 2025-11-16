@@ -127,3 +127,37 @@ Find it in [this file](./04-prototype.ts).
 ### More
 
 Check out the source [here](https://refactoring.guru/design-patterns/prototype).
+
+## 5. Singleton
+
+Singleton is a creational design pattern that ensures a class has only one instance while providing a global access point to that instance.
+
+### What?
+
+- Ensure that a class has only one single instance.
+- Provide a global access to that instance.
+
+### Why?
+
+- This is mostly used to restrict resource usage. For example, while accessing a database, only one instance should be allowed to write on the DB.
+- The global "access point" instead of a traditional global variable is used, because the latter can be overwritten anywhere throughout the code.
+
+### Why not?
+
+- This pattern should normally be avoided because it violates the Single Responsibility Principle, and solves _two_ problems (metioned under [Why?](#why)) instated of 1.
+
+### How?
+
+- First, make the constructor of the class `private`, so that new instances cannot be created by the `new` keyword.
+- Then, create an instance variable which will be static in nature. I'm keeping this variable private.
+- Then, create a `public` `static` method which:
+  - checks if the instance variable already exists, and if so, returns that
+  - if not, creates a new instance, assigns it to the instance variable, and returns that
+
+### Code
+
+Find it in [this file](./05-singleton.ts).
+
+### More
+
+Check out the source [here](https://refactoring.guru/design-patterns/singleton).
