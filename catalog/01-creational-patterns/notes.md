@@ -108,7 +108,7 @@ Find it in [this file](./03-builder.ts).
 
 Check out the source [here](https://refactoring.guru/design-patterns/builder).
 
-## 3. Prototype
+## 4. Prototype
 
 Prototype is a creational design pattern that lets you copy existing objects without making your code dependent on their classes, and making sure the private fields are also copied.
 
