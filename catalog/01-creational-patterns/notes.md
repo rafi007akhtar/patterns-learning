@@ -25,7 +25,7 @@ Find it in [this file](./01-factory-method.ts).
 
 Check out the source [here](https://refactoring.guru/design-patterns/factory-method).
 
-## 2. Absolute Factory
+## 2. Abstract Factory
 
 The abstract factory is a creational design pattern that allows to produce families of related objects without specifying their concrete class.
 
@@ -74,7 +74,7 @@ The factory guarantees that the resulting products are compatible. Signatures of
 
 ### Code
 
-Find it in [this file](./02-absolute-factory.ts).
+Find it in [this file](./02-abstract-factory.ts).
 
 ### More
 
