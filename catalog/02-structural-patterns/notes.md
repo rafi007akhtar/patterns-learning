@@ -39,3 +39,45 @@ Find it in [this file](./01-adapter.ts).
 ### More
 
 Check out the source [here](https://refactoring.guru/design-patterns/adapter).
+
+## 2. Bridge
+
+### What?
+
+- Bridge is a pattern that splits the functionality into two parts:
+  - Abstraction
+  - Implementation
+
+### Why?
+
+- Inheritance has its limitations.
+- As the different types of use-cases come up, creating classes for each use-case in the inheritance chain becomes exponentially more complex.
+- For example, if B1 and B2 inherit from A, and we have two new types of classes: C1 and C2, both of which need functionality of B1 and B2, then the chain goes from:
+  ```
+  A -> B1, B2
+  ```
+  to:
+  ```
+  A -> B1C1, B1C2, B2C1, B2C2
+  ```
+- This happened when only two new classes got added. If more get added, the complexity will rise exponentially and the maintainability will be just as complex.
+
+### How?
+
+- Define a base abstraction class.
+- Define an interface which declares what needs to be implemented.
+- Have a _reference_ to a variable with the interface type in the abstraction class.
+- Define concrete implementation classes.
+- Delegate the implementation work in the abstraction class to these concrete implementation classes through the implementation reference variable.
+- If new features need to be added to the base class, extended classes can be created.
+- The client will need to define an implementation instance from one of the concrete implementation classes, and use it to define an abstraction or extended abstraction instance.
+- Through this instance, they can call implementation methods declare in the interface.
+- This way, the abstraction class works as a "control", and the implementation classes perform those controlled operations.
+
+### Code
+
+Find it in [this file](./02-bridge.ts).
+
+### More
+
+Check out the source [here](https://refactoring.guru/design-patterns/bridge).
