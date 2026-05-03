@@ -12,7 +12,7 @@ A factory method (also called virtual constructor) is a pattern that provides an
 - we can create objects of this class using its constructor in conjunction with the `new` keyword, but we won't do that;
 - instead, we will have to define a method in class A, something like `makeA`, which will return an instance of A.
 
-### But why tho?
+### But why do this?
 
 - using a constructor will always create a new object with every attribute with its defaults;
 - if we instead use a factory method like `makeA`, we can decide if we want to return a new object (like `new A()`), or see if we have a cached object that will do the task, or if we want to want the create object logic to be defined in the base class instead - which can be done by making `makeA` an abstract class or an interface.

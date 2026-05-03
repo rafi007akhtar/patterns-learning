@@ -81,3 +81,25 @@ Find it in [this file](./02-bridge.ts).
 ### More
 
 Check out the source [here](https://refactoring.guru/design-patterns/bridge).
+
+## 3. Composite
+
+### What?
+
+A **composite** (also known as _object tree_) is a pattern that lets you compose objects into tree structures, and then work with these structures as if they were individual objects.
+
+### When?
+
+This approach only makes sense when the primary structure of data has recursive relationships with its objects, and therefore could use a recursive solution to traverse through the objects and process them.
+
+### Why?
+
+This is because such tree-like data-structures make looping through them to get the individual elements very complex. And also becaue with this approach, a node which may delegate to another node or a leaf does not need to know the concrete class of its children.
+
+### Code
+
+Find it in [this file](./03-composite.ts).
+
+### More
+
+Check out the source [here](https://refactoring.guru/design-patterns/composite).
