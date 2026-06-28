@@ -103,3 +103,70 @@ Find it in [this file](./03-composite.ts).
 ### More
 
 Check out the source [here](https://refactoring.guru/design-patterns/composite).
+
+## 4. Decorator
+
+### What?
+
+In the **decorator** design pattern (also known as **wrapper** pattern), we attach new behaviours to objects by putting them inside wrapper objects that contain the said behaviours.
+
+### Why?
+
+Let's say you have a `Notifier` class which takes a list of emails in its constructor and uses its `send` method to send a message to all those emails.
+Now:
+
+- the client wants abilities to send on other platforms, like SMS, RCS, Whatsapp, etc. => so, extend `Notifier` and create a subclass for each, and the client can use the relevant subclass as and when needed
+- you need to be able to send critical messages on every platform at once => create another subclass that sends messages to all platforms => code gets bloated on sides (library as well as client) and becomes difficult to manage.
+
+These issues highlight the drawbacks of inheritance:
+
+- in most langauges, a child class can only have one parent class,
+- object behaviour cannot be modified at runtime; only the entire object can be replaced.
+
+To overcome these drawbacks, we pivot to the following alternatives:
+
+- **Aggregation**.
+  - Object `A` _contains_ a set of `B` objects;
+  - `B` _can live_ without `A`.
+- **Composition.**
+  - Object `A` _contains_ a set of `B` objects;
+  - `A` manages the lifecycle of `B`;
+  - `B` _cannot live_ without `A`.
+
+In both these cases, `A` has reference to some `B` object and is able to _delegate_ it some work. <br />
+In contrast, with inheritance, `B` would _inherit_ the ability to do the work from `A`. <br />
+So, with aggregation or composition, we can subsitute the current object with a different object that can reference other objects and delegate to them different kinds of tasks. Using this "linked, helper object" forms the basis of the decorator pattern.
+
+### How?
+
+A _wrapper_ is an object that can be _linked_ to a target object. The wrapper will:
+
+- perform all the tasks that the target object will be required to do, but
+- it may perform additional tasks before or after the target object performs its tasks.
+
+In order for this to happen:
+
+- the wrapper would need to implement the same interface as the target object,
+- as the wrapper implements the same interface as the target, this would allow the target to link multiple wrappers to itself,
+- therefore, the target object should be able to combine the behaviours of all the wrappers linked to it.
+- The wrappers, or decorators, will be added on top of each other like a stack;
+- the last decorator on the stack will be the object the client actually works with.
+
+So, in the earlier `Notifier` example, we can add decorators to the subclasses of the `Notifier` (like for SMS, RCS, Whatsapp etc.). The client can then stack these decorators and use the final one to work with.
+
+```ts
+let stack = new Notifier();
+if (SMS) stack = new SMSDecorator(stack);
+if (RCS) stack = new RCSDecorator(stack);
+if (whatsapp) stack = new WhatsappDecorator(stack);
+
+// client can then use the final stack which has combined capabilities of all the required decorators
+```
+
+### Code
+
+Find it in [this file](./04-decorator.ts).
+
+### More
+
+Check out the source [here](https://refactoring.guru/design-patterns/decorator).
