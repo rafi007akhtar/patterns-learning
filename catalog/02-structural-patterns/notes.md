@@ -170,3 +170,27 @@ Find it in [this file](./04-decorator.ts).
 ### More
 
 Check out the source [here](https://refactoring.guru/design-patterns/decorator).
+
+## 5. Facade
+
+### What?
+
+A **facade** is essentially an abstraction layer between the client and a complex system to perform various tasks. This layer only consists of the functionalities that the client cares about.
+
+### Why?
+
+Suppose we need to interact with a complex third-party library to perform our task. This library may involve performing multiple complex steps to reach the end goal. In doing so, the client code becomes **tightly coupled** with the library, and becomes dependent on its structure, although the client might only care about a subset of the functionality offered by the library.
+
+### How?
+
+- Establish a facade layer between the client and the complex system.
+- If the facade is getting polluted with features that is making itself a complex system, establish additional facades.
+- If there are multiple layers to a subsystem, create facades for each of them and make those layers communicate throught the facades.
+
+### Code
+
+Find it in [this file](./05-facade.ts).
+
+### More
+
+Check out the source [here](https://refactoring.guru/design-patterns/facade).
