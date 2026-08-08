@@ -69,5 +69,8 @@ const facade = new Facade(sub1, sub2);
 clientCodeFacade(facade);
 
 /* OUTPUT:
-TODO: Add output here
+Subsystem: 01; Operation: 1
+Subsystem: 01; Operation: 2
+Subsystem: 02; Operation: 1
+Subsystem: 02; Operation: 2
 */
