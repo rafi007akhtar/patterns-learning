@@ -194,3 +194,43 @@ Find it in [this file](./05-facade.ts).
 ### More
 
 Check out the source [here](https://refactoring.guru/design-patterns/facade).
+
+## 6. Flyweight
+
+The flyweight pattern is a structural pattern that allows programs to support vast quantities of objects by keeping their memory consumption low.
+
+### Basic setup
+
+- The flyweight pattern is also called cache, and deals with the _extrinsic_ state of an object. To give basic definitions:
+  - **instrinsic state**: this is the data stored in an object that is _not_ altered by other objects;
+  - **extrinsic state**: this is the kind of data which we may store in an object, but it depends on and is modified by external sources like other objects.
+- The flyweight pattern suggests:
+  - only store intrinsic state in an object;
+  - any object that needs extrinsic state should be extracted away;
+  - as a result, the number of objects needed in the implementation reduced, as they only depend on the intrinsic state.
+- An object that stores only intrinsic data is called a **flyweight.**
+
+### Where does the extrinsic data go?
+
+- The extrinsic data gets stored in a _context class_ that also has references to the flyweight objects.
+- These are often the container classes of the flyweights.
+- So, all the context classes which have extrinsic data now reuse the flyweight objects, which have the intrinsic data that consume the most memory and are no longer replicated.
+- The full state of the original data will reappear when the context object is paired with a flyweight object.
+
+### Notes:
+
+- A flyweight **must** be **immutable**.
+  - It should set its attributes _once_ via constructor.
+  - It should not have any setters or expose public fields to other objects.
+- A common implementation of managing flyweights is through a **flyweight factory**, where:
+  - a factory method accepts the intrinsic state of a desired flyweight object from the client;
+  - if such an object is found, it is returned;
+  - if not found, it is added to the pool of the flyweight objects.
+
+### Code
+
+Find it in [this file](./06-flyweight.ts).
+
+### More
+
+Check out the source [here](https://refactoring.guru/design-patterns/flyweight).
