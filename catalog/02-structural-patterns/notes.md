@@ -234,3 +234,41 @@ Find it in [this file](./06-flyweight.ts).
 ### More
 
 Check out the source [here](https://refactoring.guru/design-patterns/flyweight).
+
+## 7. Proxy
+
+### What?
+
+A proxy is a structural pattern that:
+
+- provides a placeholder for an existing object,
+- has access to the original object,
+- and that allows you to perform operations before / after the original object is processed.
+
+### When?
+
+This pattern is used, for example, when:
+
+- you have an object that consumes lots of resources,
+- you need an object from time to time, but not always,
+- you need to perform some operation before / after the object gets used.
+
+### How?
+
+We will call the class to be proxied **Service**. So what you do is:
+
+- Create a Proxy class that implements the same Service inteface as the Service class.
+  - If the Service interface does not exist, create one.
+  - Alternatively, if extracting all attribute and method signatures of a class is not possible for creating the interface, you may inherit the Proxy class from the Service class, which will automatically provide all properties of Service to Proxy.
+  - This Proxy class should have a field to store the reference to the original Service class.
+- Made this Proxy handle the pre- / post-processing, like lazy-initialization, logging, access control, caching etc.
+  - The proxy may delegate work to the Service object after doing some work.
+- Update the client so that it supports passing of the Proxy just as it would the passing of the Service, so that you can pass the Proxy into any code that expects the Service.
+
+### Code
+
+Find it in [this file](./07-proxy.ts).
+
+### More
+
+Check out the source [here](https://refactoring.guru/design-patterns/proxy).
